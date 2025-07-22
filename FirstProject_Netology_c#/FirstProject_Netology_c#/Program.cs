@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Text.RegularExpressions;
+using System.Text;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace FirstJob
@@ -8,49 +10,39 @@ namespace FirstJob
 
         static void Main(string[] args)
         {
-            if (int.TryParse(Console.ReadLine(), out int number1))
-            {
-                // число записывается в переменную number1
-            }
-            else
-            {
-                Console.WriteLine("ERROR! Please, enter number!!!");
-                return;
-            }
-            if (int.TryParse(Console.ReadLine(), out int number2))
-            {
-                // число записывается в переменную number2
-            }
-            else
-            {
-                Console.WriteLine("ERROR! Please, enter number!!!");
-                return;
-            }
-            var ch = Console.ReadLine();
-            if (ch.Length == 1 && (ch[0] == '&' || ch[0] == '|' || ch[0] == '^'))
-            {
-                switch (ch[0])
-                {
-                    case '&':
-                        Console.WriteLine("Result  {0} {1} {2} ={3}", number1, ch, number2, number1 & number2);
-                        Console.WriteLine("Result  {0} {1} {2} ={3}", number1, ch, number2, Convert.ToString(number1 & number2, 2));
-                        Console.WriteLine("Result  {0} {1} {2} ={3}", number1, ch, number2, Convert.ToString(number1 & number2, 16)); break;
-                    case '|':
-                        Console.WriteLine("Result  {0} {1} {2} ={3}", number1, ch, number2, number1 | number2);
-                        Console.WriteLine("Result  {0} {1} {2} ={3}", number1, ch, number2, Convert.ToString(number1 | number2, 2));
-                        Console.WriteLine("Result  {0} {1} {2} ={3}", number1, ch, number2, Convert.ToString(number1 | number2, 16)); break;
-                    case '^':
-                        Console.WriteLine("Result  {0} {1} {2} ={3}", number1, ch, number2, number1 ^ number2);
-                        Console.WriteLine("Result  {0} {1} {2} ={3}", number1, ch, number2, Convert.ToString(number1 ^ number2, 2));
-                        Console.WriteLine("Result  {0} {1} {2} ={3}", number1, ch, number2, Convert.ToString(number1 ^ number2, 16)); break;
+            //выполнение первого задания
+            int[] fibonachi = new int[8] {0,1,1,2,3,5,8,13};
 
-                }
-            }
-            else
-            {
-                Console.WriteLine("Error, Wrong sign");
+            //выполнение второго задания
+            string[] month = new string[12] { "January", "February", "March","April","May","June","July","August","September","October","November","December"};
 
+            //третье задание
+            int[,] matrix = new int[3, 3] { { 2, 3, 4 }, { 4, 9, 16 }, { 8, 27, 64 } };
+
+            //четвертое задание 
+            double[][] jagged = new double[3][]; //создаем массив с подмассивами /*{ Math.Log10(1), Math.Log10(10), Math.Log10(100), Math.Log10(1000) }*/
+            jagged[0] = new double[5];// первый подмассив, и загоняем его в первую строку
+            for(int i = 0; i < 5; i++)
+            {
+                jagged[0][i] = i + 1;
             }
+            jagged[1] = new double[2]; //загоняем во вторую строку второй массив из констант
+            jagged[1][0] = Math.E;
+            jagged[1][1] = Math.PI;
+            jagged[2] = new double[4];//загоняем массив с логаритмами
+            jagged[2][0] = Math.Log10(1);
+            jagged[2][1] = Math.Log10(10);
+            jagged[2][2] = Math.Log10(100);
+            jagged[2][3] = Math.Log10(1000);
+
+
+
+
+            
+            
+            
+            
+            
 
         }
     }
