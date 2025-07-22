@@ -20,7 +20,7 @@ namespace FirstJob
             int[,] matrix = new int[3, 3] { { 2, 3, 4 }, { 4, 9, 16 }, { 8, 27, 64 } };
 
             //четвертое задание 
-            double[][] jagged = new double[3][]; //создаем массив с подмассивами /*{ Math.Log10(1), Math.Log10(10), Math.Log10(100), Math.Log10(1000) }*/
+            double[][] jagged = new double[3][]; //создаем массив с подмассивами */
             jagged[0] = new double[5];// первый подмассив, и загоняем его в первую строку
             for(int i = 0; i < 5; i++)
             {
