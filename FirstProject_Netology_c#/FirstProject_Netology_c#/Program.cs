@@ -9,51 +9,52 @@ namespace FirstJob
     {
 
         static void Main(string[] args)
-        {//Задача А
-            //выполнение первого задания
-            int[] fibonachi = new int[8] {0,1,1,2,3,5,8,13};
-
-            //выполнение второго задания
-            string[] month = new string[12] { "January", "February", "March","April","May","June","July","August","September","October","November","December"};
-
-            //третье задание
-            int[,] matrix = new int[3, 3] { { 2, 3, 4 }, { 4, 9, 16 }, { 8, 27, 64 } };
-
-            //четвертое задание 
-            double[][] jagged = new double[3][]; //создаем массив с подмассивами */
-            jagged[0] = new double[5];// первый подмассив, и загоняем его в первую строку
-            for(int i = 0; i < 5; i++)
+        {
+            //задание 1
+            int digit1=0;
+            int digit2 = 1;
+            Console.WriteLine(digit1);
+            Console.WriteLine(digit2);
+            for(int i=2; i<10;i++)
             {
-                jagged[0][i] = i + 1;
-            }
-            jagged[1] = new double[2]; //загоняем во вторую строку второй массив из констант
-            jagged[1][0] = Math.E;
-            jagged[1][1] = Math.PI;
-            jagged[2] = new double[4];//загоняем массив с логаритмами
-            jagged[2][0] = Math.Log10(1);
-            jagged[2][1] = Math.Log10(10);
-            jagged[2][2] = Math.Log10(100);
-            jagged[2][3] = Math.Log10(1000);
+                int newdigit = digit1 + digit2;
+               Console.WriteLine(newdigit);
+                digit1 = digit2;
+                digit2 = newdigit;
 
-            //Задача Б
-            //пятое задание
-            int[] array = new int[5] { 1, 2, 3, 4, 5 };
-            int[] array2 = new int[] { 7, 8, 9, 10, 11, 12, 13 };
-           Array.Copy(array, 0, array2, 0, 3);// если правильно понял, то последовательность параметров: исходный массив(откуда), откуда начинаем копирование, массив куда копируем, куда вставляем, сколько элементов
-            foreach(int i in array2)
-            {
-                //Console.WriteLine(i);
+                
             }
-            //шестое
-            int NewDigit = array.Length * 2;
-            Array.Resize(ref array, NewDigit);  //или попроще, зная размер массива Array.Resize(ref array, 10);
-            /*foreach(int i in array)
+
+            //задание 2
+            for(int i=2;i<21;i+=2)//также можно сделать цикл i++, и добавить if(i%2==0), т.е. если нет остатка от деления, значит четное, на печать
             {
                 Console.WriteLine(i);
-            }*/
+            }
 
+            //задание 3
+            for(int i=1;i<=5;i++)
+            {
+                for(int j=1;j<=5;j++)
+                {
+                    Console.Write(i * j + " ");
+                }
+                Console.WriteLine();
+            }
 
+            //задание 4
+            string password = "qwerty";
+            string user="";
+            do
+            {
+                user = Console.ReadLine();
+               if(password!=user)
+               {
+                    Console.WriteLine("Wrong password!");
+                }
 
+            } while (password != user);
+           
+            Console.Write("True password!");
 
 
 
