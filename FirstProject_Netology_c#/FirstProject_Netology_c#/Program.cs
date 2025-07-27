@@ -51,10 +51,14 @@ namespace FirstJob
                {
                     Console.WriteLine("Wrong password!");
                 }
+                else
+                {
+                    Console.Write("True password!");
+                }
 
             } while (password != user);
            
-            Console.Write("True password!");
+            
 
 
 
