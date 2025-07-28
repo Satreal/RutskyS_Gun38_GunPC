@@ -1,64 +1,76 @@
 ﻿using System;
-using System.Text.RegularExpressions;
-using System.Text;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+using System.Runtime.CompilerServices;
 
 namespace FirstJob
 {
+    public class Unit
+    {
+        public string Name { get; }
+        private float Health { get; }
+        public int Damage { get; }
+        public float Armour { get; }
+        public Unit() : this("Unknown Unit") { }
+       
+        public Unit(string name)
+        {
+            Name = name;
+            Damage = 5;
+            Armour = 0.6f;
+            Health = 60.0f;
+        }
+        public float GetRealHealth()
+        {
+            
+            return Health * (1f + Armour);
+        }
+        public bool SetDamage(float value)
+        {
+            
+            
+            bool setDamage = true;
+            if (Health - value * Armour <= 0)
+            {
+
+                return setDamage;
+
+            }
+            else
+            {
+                return !setDamage;
+            }
+        }
+
+    }
     class Program
     {
 
         static void Main(string[] args)
         {
-            //задание 1
-            int digit1=0;
-            int digit2 = 1;
-            Console.WriteLine(digit1);
-            Console.WriteLine(digit2);
-            for(int i=2; i<10;i++)
-            {
-                int newdigit = digit1 + digit2;
-               Console.WriteLine(newdigit);
-                digit1 = digit2;
-                digit2 = newdigit;
 
+            Console.WriteLine("What is your name?");
+            var person = new Unit(Console.ReadLine());
+
+            Console.WriteLine($"Hello, {person.Name}");
+            Console.WriteLine($"Damage: {person.Damage}");
+            Console.WriteLine($"Armour:{person.Armour}");
+            Console.WriteLine($"RealHealth:{person.GetRealHealth()}");
+            Console.WriteLine("Attention, you've met the enemy!");
+            int damage=120;
+            Console.WriteLine($"The enemy strikes, damage {damage}");
+            Console.WriteLine($"Health:{person.GetRealHealth() - damage} ");//логика не правильная, но т.к. не догадался, как возвращать приватный health, решил так=)
+            if(person.SetDamage(damage))
+            {
+                Console.WriteLine("Sorry, you die!");
+            }
+            else
+            {
+                Console.WriteLine($"{person.Name} RUN!");
+
+            }
                 
-            }
 
-            //задание 2
-            for(int i=2;i<21;i+=2)//также можно сделать цикл i++, и добавить if(i%2==0), т.е. если нет остатка от деления, значит четное, на печать
-            {
-                Console.WriteLine(i);
-            }
 
-            //задание 3
-            for(int i=1;i<=5;i++)
-            {
-                for(int j=1;j<=5;j++)
-                {
-                    Console.Write(i * j + " ");
-                }
-                Console.WriteLine();
-            }
 
-            //задание 4
-            string password = "qwerty";
-            string user="";
-            do
-            {
-                user = Console.ReadLine();
-               if(password!=user)
-               {
-                    Console.WriteLine("Wrong password!");
-                }
-                else
-                {
-                    Console.Write("True password!");
-                }
-
-            } while (password != user);
-           
-            
 
 
 
