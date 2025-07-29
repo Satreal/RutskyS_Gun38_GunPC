@@ -6,17 +6,18 @@ namespace FirstJob
     public class Unit
     {
         public string Name { get; }
-        private float Health { get; }
-        public int Damage { get; }
+        private float _health;
+        public int Damage { get; }  
         public float Armour { get; }
         public Unit() : this("Unknown Unit") { }
+        public float Health => _health;
        
         public Unit(string name)
         {
             Name = name;
             Damage = 5;
             Armour = 0.6f;
-            Health = 60.0f;
+            _health = 60.0f;
         }
         public float GetRealHealth()
         {
@@ -25,19 +26,10 @@ namespace FirstJob
         }
         public bool SetDamage(float value)
         {
+                      
             
-            
-            bool setDamage = true;
-            if (Health - value * Armour <= 0)
-            {
-
-                return setDamage;
-
-            }
-            else
-            {
-                return !setDamage;
-            }
+            _health -= value * Armour;
+            return Health <= 0f;
         }
 
     }
@@ -51,23 +43,42 @@ namespace FirstJob
             var person = new Unit(Console.ReadLine());
 
             Console.WriteLine($"Hello, {person.Name}");
+            Console.WriteLine($"Start health: {person.Health}");
             Console.WriteLine($"Damage: {person.Damage}");
             Console.WriteLine($"Armour:{person.Armour}");
             Console.WriteLine($"RealHealth:{person.GetRealHealth()}");
             Console.WriteLine("Attention, you've met the enemy!");
-            int damage=120;
+            int damage=60;
             Console.WriteLine($"The enemy strikes, damage {damage}");
-            Console.WriteLine($"Health:{person.GetRealHealth() - damage} ");//логика не правильная, но т.к. не догадался, как возвращать приватный health, решил так=)
+            //bool die =person.SetDamage(damage);
+            
             if(person.SetDamage(damage))
             {
+                Console.WriteLine($"RealHealth:{person.GetRealHealth()} ");
                 Console.WriteLine("Sorry, you die!");
             }
             else
             {
+                Console.WriteLine($"RealHealth:{person.GetRealHealth()} ");
                 Console.WriteLine($"{person.Name} RUN!");
 
             }
-                
+            
+            
+            damage = 55;
+            Console.WriteLine($"The enemy strikes, damage {damage}");
+
+            if (person.SetDamage(damage))
+                {
+                    Console.WriteLine($"RealHealth:{person.GetRealHealth()} ");
+                    Console.WriteLine("Sorry, you die!");
+                }
+                else
+                {
+                    Console.WriteLine($"RealHealth:{person.GetRealHealth()} ");
+                    Console.WriteLine($"{person.Name} RUN!");
+
+                }
 
 
 
@@ -80,6 +91,8 @@ namespace FirstJob
 
 
 
-        }
+
+
+            }    
     }
 }
