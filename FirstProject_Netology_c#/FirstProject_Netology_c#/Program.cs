@@ -3,36 +3,6 @@ using System.Runtime.CompilerServices;
 
 namespace FirstJob
 {
-    public class Unit
-    {
-        public string Name { get; }
-        private float _health;
-        public int Damage { get; }  
-        public float Armour { get; }
-        public Unit() : this("Unknown Unit") { }
-        public float Health => _health;
-       
-        public Unit(string name)
-        {
-            Name = name;
-            Damage = 5;
-            Armour = 0.6f;
-            _health = 60.0f;
-        }
-        public float GetRealHealth()
-        {
-            
-            return Health * (1f + Armour);
-        }
-        public bool SetDamage(float value)
-        {
-                      
-            
-            _health -= value * Armour;
-            return Health <= 0f;
-        }
-
-    }
     class Program
     {
 
@@ -63,8 +33,6 @@ namespace FirstJob
                 Console.WriteLine($"{person.Name} RUN!");
 
             }
-            
-            
             damage = 55;
             Console.WriteLine($"The enemy strikes, damage {damage}");
 
@@ -77,22 +45,7 @@ namespace FirstJob
                 {
                     Console.WriteLine($"RealHealth:{person.GetRealHealth()} ");
                     Console.WriteLine($"{person.Name} RUN!");
-
                 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            }    
+        }    
     }
 }
