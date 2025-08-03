@@ -13,25 +13,38 @@ namespace FirstJob
         public int minDamage { get; private set ; } 
         public int maxDamage { get; private set; }
         public float Durability { get; }
-        public void SetDamageParams(int minDamage, int maxDamage)
+        public int GetDamage()
         {
-            if(minDamage>maxDamage)
+            return (minDamage + maxDamage)/2;
+        }
+        public void SetDamageParams(int min, int max)
+        {
+            if(min>max)
             {
-                int reverse = maxDamage;
-                maxDamage = minDamage;
-                minDamage = reverse;
+                int reverse = max;
+                max = min;
+                min = reverse;
                 Console.WriteLine($"{Name}, некорректные входные данные");
 
             }
-            if(minDamage<1)
+            if(min<1)
             {
-                minDamage = 1;
+                min = 1;
                 Console.WriteLine($" Установлено форсированное минимальное значение урона = 1 для оружия {Name}");
             }
-            if(maxDamage<=1)
+            else
             {
-                maxDamage = 10;
-                
+                minDamage = min;
+            }
+
+            if (max <= 1)
+            {
+                max = 10;
+
+            }
+            else
+            {
+                maxDamage = max;
             }
 
         }
@@ -40,10 +53,9 @@ namespace FirstJob
         {  
             Name = name;
         }
-        public Weapon(string name, int min,int max): this(name)
+        public Weapon(string name, int minDamage,int maxDamage): this(name)
         {
-            minDamage = min;
-            maxDamage = max;
+            SetDamageParams(minDamage,maxDamage);
             Durability = 1f;
         }
     }
