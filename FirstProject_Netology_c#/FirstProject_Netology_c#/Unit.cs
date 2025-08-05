@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,15 +12,18 @@ namespace FirstJob
         private float _health;
         public string Name { get; }
 
-        public int Damage { get; }
+       // public int Damage { get; }
+
         public float Armour { get; }
 
         public float Health => _health;
-        public Unit() : this("Unknown Unit") { }
+        public Interval Damage { get;}
+        public Unit() : this("Unknown Unit") { } 
+        
         public Unit(string name)
         {
             Name = name;
-            Damage = 5;
+            Damage = new Interval(0,40);
             Armour = 0.6f;
             _health = 60.0f;
         }

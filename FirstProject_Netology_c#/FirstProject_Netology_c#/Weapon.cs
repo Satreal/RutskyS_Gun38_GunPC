@@ -10,52 +10,52 @@ namespace FirstJob
     {
               
         public string Name { get; }
-        public int minDamage { get; private set ; } 
-        public int maxDamage { get; private set; }
+        //public int minDamage { get; private set ; } 
+        //public int maxDamage { get; private set; }
         public float Durability { get; }
-        public int GetDamage()
-        {
-            return (minDamage + maxDamage)/2;
-        }
-        public void SetDamageParams(int min, int max)
-        {
-            if(min>max)
-            {
-                int reverse = max;
-                max = min;
-                min = reverse;
-                Console.WriteLine($"{Name}, некорректные входные данные");
+        public Interval Damage { get;}
+        //public int GetDamage()
+        //{
+        //    return (minDamage + maxDamage)/2;
+        //}
+        //public void SetDamageParams(int min, int max)
+        //{
+        //    if(min>max)
+        //    {
+        //        (min,max)=(max,min);
+        //        Console.WriteLine($"{Name}, некорректные входные данные");
 
-            }
-            if(min<1)
-            {
-                min = 1;
-                Console.WriteLine($" Установлено форсированное минимальное значение урона = 1 для оружия {Name}");
-            }
-            else
-            {
-                minDamage = min;
-            }
+        //    }
+        //    if(min<1)
+        //    {
+        //        min = 1;
+        //        Console.WriteLine($" Установлено форсированное минимальное значение урона = 1 для оружия {Name}");
+        //    }
+        //    else
+        //    {
+        //        minDamage = min;
+        //    }
 
-            if (max <= 1)
-            {
-                max = 10;
+        //    if (max <= 1)
+        //    {
+        //        max = 10;
 
-            }
-            else
-            {
-                maxDamage = max;
-            }
+        //    }
+        //    else
+        //    {
+        //        maxDamage = max;
+        //    }
 
-        }
+        //}
 
         public Weapon(string name)
         {  
             Name = name;
+            Damage = new Interval(0, 10);
         }
         public Weapon(string name, int minDamage,int maxDamage): this(name)
         {
-            SetDamageParams(minDamage,maxDamage);
+           Damage = new Interval(minDamage, maxDamage); 
             Durability = 1f;
         }
     }
