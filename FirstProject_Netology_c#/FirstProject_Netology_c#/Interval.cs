@@ -9,12 +9,12 @@ using System.Threading.Tasks;
     {
         public struct Interval
         {
-            public double Min { get; }
-            public double Max { get; }
-            Random RandomValue = new Random();
+            public int Min { get; }
+            public int Max { get; }
+            public Random RandomValue = new Random();
             public double Get()
             {
-                return RandomValue.NextDouble() * (Max - Min) + Min;
+                return RandomValue.Next(Min,Max);
             }
             public Interval(int minValue, int maxValue)
             {

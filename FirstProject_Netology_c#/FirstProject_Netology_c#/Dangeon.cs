@@ -10,9 +10,9 @@ namespace FirstJob
         {
             rooms = new Room[]
             {
-                new Room(new Unit("Ork"), new Weapon("Knife",5,10)),
-                new Room(new Unit("Elf"), new Weapon("Sword",20,40)),
-                new Room(new Unit("Paladine"), new Weapon("Staff",15,19))
+                new Room(new Unit("Ork"), new Weapon("Knife")),
+                new Room(new Unit("Elf"), new Weapon("Sword")),
+                new Room(new Unit("Paladine"), new Weapon("Staff"))
             };
         }
 
@@ -23,8 +23,8 @@ namespace FirstJob
             {
                 var room = rooms[i];
 
-                Console.WriteLine($"Unit of room {room.Unit}");
-                Console.WriteLine($"Weapon of room  {room.Weapon}");
+                Console.WriteLine($"Unit of room {room.Unit.Name}");
+                Console.WriteLine($"Weapon of room  {room.Weapon.Name}");
                 Console.WriteLine("—");
             }
         }

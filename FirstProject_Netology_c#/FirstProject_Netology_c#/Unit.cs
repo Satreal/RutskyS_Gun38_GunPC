@@ -12,7 +12,6 @@ namespace FirstJob
         private float _health;
         public string Name { get; }
 
-       // public int Damage { get; }
 
         public float Armour { get; }
 
