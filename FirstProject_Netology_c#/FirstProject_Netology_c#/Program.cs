@@ -15,10 +15,10 @@ namespace FirstJob
             do
             {
                 Console.WriteLine("Доброго дня! для продолжения, введите номер задачи: 1,2 или 3");
-                if (int.TryParse(Console.ReadLine(), out digit)&& (digit>=1&&digit<=3))
+                if (int.TryParse(Console.ReadLine(), out digit) && (digit >= 1 && digit <= 3))
                 {
                     break;
-                    
+
                 }
                 Console.WriteLine("Ошибка ввода данных!... скоро запустимся заново");
             } while (true);
@@ -27,8 +27,8 @@ namespace FirstJob
             switch (digit)
             {
                 case 1: CheckTaskFirst(); break;
-                    case 2: CheckTaskSecond(); break;
-                    case 3: CheckTaskThird(); break;
+                case 2: CheckTaskSecond(); break;
+                case 3: CheckTaskThird(); break;
             }
         }
 
@@ -36,8 +36,8 @@ namespace FirstJob
         {
             private readonly List<string> _list = new List<string>() { "first", "second", "third" };
             public void TaskLoop()
-            { 
-             
+            {
+
                 while (true)
                 {
                     Console.WriteLine("Пожалуйста, введите новую строчку для добавления ее в список");
@@ -45,11 +45,11 @@ namespace FirstJob
                     Console.WriteLine("ОТлично, успешно добавлено в список, на данный момент список состоит из следующий элементов:");
                     Console.WriteLine(string.Join(",", _list));
                     Console.WriteLine("Добавьте еще одну строку в список, ее запихнем в середину");
-                    _list.Insert(_list.Count/2, Console.ReadLine());
+                    _list.Insert(_list.Count / 2, Console.ReadLine());
                     Console.WriteLine("Отлично, теперь список выглядит так:" + string.Join(",", _list));
                     Console.WriteLine("Если хотите завершить добавление, введите \"stop\". Для продолжения введите любой символ.");
                     string input = Console.ReadLine();
-                    if(input=="stop")
+                    if (input == "stop")
                     {
                         Console.WriteLine("Спасибо, работа завершена, надеюсь, выполнена верно.");
                         break;
@@ -108,19 +108,57 @@ namespace FirstJob
                         foreach (var people in _journal)
                         {
                             Console.WriteLine($"{people.Key}: {people.Value}");
-                            continue;
+                            break;
                         }
-                    } }
-            
+                    }
+                }
+
 
 
             }
 
         }
         private class Three
-        {
+        { 
+            private readonly LinkedList <string> _list = new LinkedList<string>();
             public void TaskLoop()
             {
+                int digit;
+                do
+                {
+                    Console.WriteLine("введите от 3 до 6 элементов для добавления в список");
+                    if (int.TryParse(Console.ReadLine(), out  digit) && (digit >= 3 && digit <= 6))
+                    {
+                        Console.WriteLine($"Спасибо, следующим шагом надо будет ввести {digit} элементов");
+
+                        break;
+
+                    }
+                    Console.WriteLine("некорректные данные, попробуй снова");
+                } while (true);
+                for(int i=1;i<=digit;i++)
+                {
+                    Console.WriteLine($"Введите элемент №{i}:");
+                    _list.AddLast(Console.ReadLine());
+                }
+                Console.WriteLine("Выводим список по порядку введенных элементов");
+                LinkedListNode<string> write = _list.First;
+                while (write != null)
+                {
+                    Console.Write(write.Value+" ");
+                    write = write.Next;
+                }
+                Console.WriteLine();
+                Console.WriteLine("А теперь список в обратном порядке:");
+                write = _list.Last;
+                while (write != null)
+                {
+                    Console.Write(write.Value+" ");
+                    write = write.Previous;
+                }
+                Console.WriteLine();
+                Console.Write("Конец программы");
+                
 
             }
 
@@ -141,6 +179,6 @@ namespace FirstJob
             listTask.TaskLoop();
         }
     }
-        
-    
+
+
 }
