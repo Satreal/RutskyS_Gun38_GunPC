@@ -11,174 +11,71 @@ namespace FirstJob
 
         static void Main(string[] args)
         {
-            int digit;
-            do
-            {
-                Console.WriteLine("Доброго дня! для продолжения, введите номер задачи: 1,2 или 3");
-                if (int.TryParse(Console.ReadLine(), out digit) && (digit >= 1 && digit <= 3))
-                {
-                    break;
+            string a = "hello,";
+            string b = "hello?";
+            
+            Console.WriteLine(ConcatenateStrings(a, b));
 
-                }
-                Console.WriteLine("Ошибка ввода данных!... скоро запустимся заново");
-            } while (true);
+            string nameGreetUser = Console.ReadLine();
+            int ageGreetUser = int.Parse(Console.ReadLine());
+            string result = GreetUser(nameGreetUser, ageGreetUser);
+            Console.WriteLine(result);
 
-            Console.WriteLine("Ожидаем запуска программы");
-            switch (digit)
-            {
-                case 1: CheckTaskFirst(); break;
-                case 2: CheckTaskSecond(); break;
-                case 3: CheckTaskThird(); break;
-            }
+            string upperLower = Console.ReadLine();
+            Console.WriteLine(LengthUpperLowerStrings(upperLower));
+
+            Console.WriteLine(Substring());
+
+            string[] arrive = new string[] { "Hello", "My", "LittLE", "WOOOOORLD" };
+            string stringBuilder = ArriveStringBuilder(arrive);
+            Console.WriteLine(stringBuilder);
+
+            string inputString = "Тут фраза, где меняем слово фраза на другое слово и фраза обретает странный смысл. фраза!";
+            string oneWord = "фраза";
+            string twoWord = "глаз";
+            Console.WriteLine(ReplaceWords(inputString,oneWord,twoWord));
+            
         }
 
-        private class One
+public static string ConcatenateStrings(string a, string b)
         {
-            private readonly List<string> _list = new List<string>() { "first", "second", "third" };
-            public void TaskLoop()
-            {
-
-                while (true)
-                {
-                    Console.WriteLine("Пожалуйста, введите новую строчку для добавления ее в список");
-                    _list.Add(Console.ReadLine());
-                    Console.WriteLine("ОТлично, успешно добавлено в список, на данный момент список состоит из следующий элементов:");
-                    Console.WriteLine(string.Join(",", _list));
-                    Console.WriteLine("Добавьте еще одну строку в список, ее запихнем в середину");
-                    _list.Insert(_list.Count / 2, Console.ReadLine());
-                    Console.WriteLine("Отлично, теперь список выглядит так:" + string.Join(",", _list));
-                    Console.WriteLine("Если хотите завершить добавление, введите \"stop\". Для продолжения введите любой символ.");
-                    string input = Console.ReadLine();
-                    if (input == "stop")
-                    {
-                        Console.WriteLine("Спасибо, работа завершена, надеюсь, выполнена верно.");
-                        break;
-                    }
-                }
-            }
-
+            return a+b;
         }
-        private class Two
+
+        public static string GreetUser (string name, int age)
         {
-            private readonly Dictionary<string, int> _journal = new Dictionary<string, int>();
-            public void TaskLoop()
+            return $"Hello, {name}!\nYou are {age} years old.";
+        }
+        public static string LengthUpperLowerStrings(string a)
+        {
+            string answer = $" в строке {a.Length} символов,\nПишем Верхним регистром \"{a.ToUpper()}\",\n и теперь нижним \"{a.ToLower()}\".";
+            return answer ;
+        }
+
+        public static string Substring()
+        {
+            string example = "golovastik";
+            return example.Substring(0, 5);
+        }
+
+        public static string ArriveStringBuilder(string[] arrive)
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+            for (int i = 0;i < arrive.Length;i++)
             {
-                while (true)
-                {
-                    Console.WriteLine("Поиграем в преподавателя. будем вводить Фамилию, а потом ставить его оценку в журнал...");
-                    Console.WriteLine("Введите фамилию ученика:");
-                    string family = Console.ReadLine();
-                    do
-                    {
-                        Console.WriteLine("а теперь введите оценку, от 2 до 5");
-                        if (int.TryParse(Console.ReadLine(), out int digit) && (digit >= 2 && digit <= 5))
-                        {
-                            _journal[family] = digit;//_journal.Add(family,digit)
-
-                            break;
-
-                        }
-                        Console.WriteLine("некорректные данные, попробуй снова");
-                    } while (true);
-                    Console.WriteLine($"Студент {family} успешно добавлен в журнал");
-
-                    do
-                    {
-                        Console.WriteLine("Давай проверим работоспособность нашего журнала. ВВеди фамилию студента:");
-                        string name = Console.ReadLine();
-                        if (_journal.ContainsKey(name))
-                        {
-                            Console.WriteLine($"у студента {name} оценка {_journal[name]}");
-                            break;
-                        }
-                        Console.WriteLine("УУУпс, такого нет, попробуй еще раз.");
-                    } while (true);
-
-
-                    Console.WriteLine("Если хотите завершить добавление, введите \"stop\". Если хотите перед выходом просмотреть весь журнал, введите " +
-                        "\"J\". Для продолжения введите любой символ.");
-                    string input = Console.ReadLine();
-                    if (input == "stop")
-                    {
-                        Console.WriteLine("Спасибо, работа завершена, надеюсь, выполнена верно.");
-                        break;
-                    }
-                    if (input == "J")
-                    {
-                        foreach (var people in _journal)
-                        {
-                            Console.WriteLine($"{people.Key}: {people.Value}");
-                            break;
-                        }
-                    }
-                }
-
-
+                stringBuilder.Append(arrive[i]);
+                stringBuilder.Append(' ');
 
             }
-
+            return stringBuilder.ToString();
         }
-        private class Three
+
+        public static string ReplaceWords(string oneString, string one, string two)
         { 
-            private readonly LinkedList <string> _list = new LinkedList<string>();
-            public void TaskLoop()
-            {
-                int digit;
-                do
-                {
-                    Console.WriteLine("введите от 3 до 6 элементов для добавления в список");
-                    if (int.TryParse(Console.ReadLine(), out  digit) && (digit >= 3 && digit <= 6))
-                    {
-                        Console.WriteLine($"Спасибо, следующим шагом надо будет ввести {digit} элементов");
-
-                        break;
-
-                    }
-                    Console.WriteLine("некорректные данные, попробуй снова");
-                } while (true);
-                for(int i=1;i<=digit;i++)
-                {
-                    Console.WriteLine($"Введите элемент №{i}:");
-                    _list.AddLast(Console.ReadLine());
-                }
-                Console.WriteLine("Выводим список по порядку введенных элементов");
-                LinkedListNode<string> write = _list.First;
-                while (write != null)
-                {
-                    Console.Write(write.Value+" ");
-                    write = write.Next;
-                }
-                Console.WriteLine();
-                Console.WriteLine("А теперь список в обратном порядке:");
-                write = _list.Last;
-                while (write != null)
-                {
-                    Console.Write(write.Value+" ");
-                    write = write.Previous;
-                }
-                Console.WriteLine();
-                Console.Write("Конец программы");
-                
-
-            }
-
+            string result = oneString.Replace(one, two);
+            return result;
         }
-        private static void CheckTaskFirst()
-        {
-            var listTask = new One();
-            listTask.TaskLoop();
-        }
-        private static void CheckTaskSecond()
-        {
-            var listTask = new Two();
-            listTask.TaskLoop();
-        }
-        private static void CheckTaskThird()
-        {
-            var listTask = new Three();
-            listTask.TaskLoop();
-        }
+
+
     }
-
-
 }
