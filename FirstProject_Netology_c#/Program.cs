@@ -6,7 +6,7 @@ namespace GamePrototype
     {
         static void Main(string[] args)
         {
-            int dsfsdf = 46465;
+            
             new GameLoop().StartGame();
         }
     }
