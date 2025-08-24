@@ -1,6 +1,6 @@
-﻿using GamePrototype.Utils;
+﻿using FirstProject_Netology_c.Utils;
 
-namespace GamePrototype.Items.EconomicItems
+namespace FirstProject_Netology_c.Items.EconomicItems
 {
     public sealed class Gold : EconomicItem
     {

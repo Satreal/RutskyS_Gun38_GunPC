@@ -1,9 +1,9 @@
-﻿using GamePrototype.Combat;
-using GamePrototype.Dungeon;
-using GamePrototype.Units;
-using GamePrototype.Utils;
+﻿using FirstProject_Netology_c.Combat;
+using FirstProject_Netology_c.Dungeon;
+using FirstProject_Netology_c.Units;
+using FirstProject_Netology_c.Utils;
 
-namespace GamePrototype.Game
+namespace FirstProject_Netology_c.Game
 {
     public sealed class GameLoop
     {

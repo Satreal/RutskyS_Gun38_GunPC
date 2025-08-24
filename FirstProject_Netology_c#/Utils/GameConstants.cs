@@ -1,4 +1,4 @@
-﻿namespace GamePrototype.Utils
+﻿namespace FirstProject_Netology_c.Utils
 {
     public static class GameConstants
     {

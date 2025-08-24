@@ -1,6 +1,6 @@
-﻿using GamePrototype.Game;
+﻿using FirstProject_Netology_c.Game;
 
-namespace GamePrototype
+namespace FirstProject_Netology_c
 {
     internal class Program
     {

@@ -1,4 +1,4 @@
-﻿namespace GamePrototype.Combat
+﻿namespace FirstProject_Netology_c.Combat
 {
     public enum RockPaperScissors
     {

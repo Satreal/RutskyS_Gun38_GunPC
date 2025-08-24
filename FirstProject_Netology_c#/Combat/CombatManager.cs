@@ -1,6 +1,6 @@
-﻿using GamePrototype.Units;
+﻿using FirstProject_Netology_c.Units;
 
-namespace GamePrototype.Combat
+namespace FirstProject_Netology_c.Combat
 {
     public sealed class CombatManager
     {

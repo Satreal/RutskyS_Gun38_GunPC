@@ -1,4 +1,4 @@
-﻿namespace GamePrototype.Items.EconomicItems
+﻿namespace FirstProject_Netology_c.Items.EconomicItems
 {
     public sealed class Grindstone : EconomicItem
     {

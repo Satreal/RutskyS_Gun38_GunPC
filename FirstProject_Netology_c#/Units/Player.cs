@@ -1,9 +1,9 @@
-﻿using GamePrototype.Items.EconomicItems;
-using GamePrototype.Items.EquipItems;
-using GamePrototype.Utils;
+﻿using FirstProject_Netology_c.Items.EconomicItems;
+using FirstProject_Netology_c.Items.EquipItems;
+using FirstProject_Netology_c.Utils;
 using System.Text;
 
-namespace GamePrototype.Units
+namespace FirstProject_Netology_c.Units
 {
     public sealed class Player : Unit
     {
@@ -39,10 +39,16 @@ namespace GamePrototype.Units
         {
             if (item is EquipItem equipItem && _equipment.TryAdd(equipItem.Slot, equipItem)) 
             {
-                // Item was equipped
+                _equipment[equipItem.Slot]=equipItem;
+                Console.WriteLine($"Надето {equipItem.Name}");
+                
+            }
+            else
+            {
                 return;
             }
-            base.AddItemToInventory(item);
+                base.AddItemToInventory(item);
+            
         }
 
         private void UseEconomicItem(EconomicItem economicItem)
@@ -51,6 +57,15 @@ namespace GamePrototype.Units
             {
                 Health += healthPotion.HealthRestore;
             }
+            else if (economicItem is Grindstone grindstone)
+            {
+                if (_equipment.TryGetValue(EquipSlot.Weapon, out var item) && item is Weapon weapon)
+                {
+                    weapon.Repair(weapon.Durability); 
+                    Console.WriteLine($"{Name} использовал {grindstone.Name}");
+                    Inventory.TryRemove(grindstone);
+                }
+            }
         }
 
         protected override uint CalculateAppliedDamage(uint damage)
@@ -58,6 +73,12 @@ namespace GamePrototype.Units
             if (_equipment.TryGetValue(EquipSlot.Armour, out var item) && item is Armour armour) 
             {
                 damage -= (uint)(damage * (armour.Defence / 100f));
+                armour.ReduceDurability(1);
+                if (armour.Durability == 0)
+                {
+                    Console.WriteLine($"{armour.Name} разрушена!");
+                    
+                }
             }
             return damage;
         }

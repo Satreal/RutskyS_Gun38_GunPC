@@ -1,6 +1,6 @@
-﻿using GamePrototype.Utils;
+﻿using FirstProject_Netology_c.Utils;
 
-namespace GamePrototype.Items.EquipItems
+namespace FirstProject_Netology_c.Items.EquipItems
 {
     public sealed class Weapon : EquipItem
     {

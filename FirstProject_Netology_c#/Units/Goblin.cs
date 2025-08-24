@@ -1,4 +1,4 @@
-﻿namespace GamePrototype.Units
+﻿namespace FirstProject_Netology_c.Units
 {
     public sealed class Goblin : Unit
     {

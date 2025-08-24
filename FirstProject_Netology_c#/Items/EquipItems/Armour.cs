@@ -1,6 +1,6 @@
-﻿using GamePrototype.Utils;
+﻿using FirstProject_Netology_c.Utils;
 
-namespace GamePrototype.Items.EquipItems
+namespace FirstProject_Netology_c.Items.EquipItems
 {
     public sealed class Armour : EquipItem
     {
@@ -9,5 +9,6 @@ namespace GamePrototype.Items.EquipItems
         public uint Defence { get; }
 
         public override EquipSlot Slot => EquipSlot.Armour;
+
     }
 }

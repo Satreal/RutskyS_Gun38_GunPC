@@ -1,8 +1,10 @@
-﻿namespace GamePrototype.Utils
+﻿namespace FirstProject_Netology_c.Utils
 {
     public enum EquipSlot
     {
         Weapon,
-        Armour
+        Armour,
+        Helmet,
+        RangeWeapon
     }
 }

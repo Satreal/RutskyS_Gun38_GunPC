@@ -1,6 +1,6 @@
-﻿using GamePrototype.Items.EconomicItems;
+﻿using FirstProject_Netology_c.Items.EconomicItems;
 
-namespace GamePrototype.Units
+namespace FirstProject_Netology_c.Units
 {
     public sealed class Inventory
     {

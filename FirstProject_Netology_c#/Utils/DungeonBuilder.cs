@@ -1,7 +1,7 @@
-﻿using GamePrototype.Dungeon;
-using GamePrototype.Items.EconomicItems;
+﻿using FirstProject_Netology_c.Dungeon;
+using FirstProject_Netology_c.Items.EconomicItems;
 
-namespace GamePrototype.Utils
+namespace FirstProject_Netology_c.Utils
 {
     public static class DungeonBuilder
     {

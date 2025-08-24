@@ -1,4 +1,4 @@
-﻿namespace GamePrototype.Dungeon
+﻿namespace FirstProject_Netology_c.Dungeon
 {
     public enum Direction
     {

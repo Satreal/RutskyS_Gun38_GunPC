@@ -1,7 +1,7 @@
-﻿using GamePrototype.Items.EconomicItems;
-using GamePrototype.Units;
+﻿using FirstProject_Netology_c.Items.EconomicItems;
+using FirstProject_Netology_c.Units;
 
-namespace GamePrototype.Dungeon
+namespace FirstProject_Netology_c.Dungeon
 {
     public sealed class DungeonRoom
     {      

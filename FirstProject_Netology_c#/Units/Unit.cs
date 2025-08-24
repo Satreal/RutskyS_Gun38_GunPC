@@ -1,6 +1,7 @@
-﻿using GamePrototype.Items.EconomicItems;
+﻿using FirstProject_Netology_c.Items.EconomicItems;
+using FirstProject_Netology_c.Items.EquipItems;
 
-namespace GamePrototype.Units
+namespace FirstProject_Netology_c.Units
 {
     public abstract class Unit
     {
@@ -9,7 +10,8 @@ namespace GamePrototype.Units
         private uint _maxHealth;
         protected uint BaseDamage;
         protected Inventory Inventory;
-        
+        protected EquipItem _armour;
+
         public string Name { get; private set; }
         public uint Health
         {
@@ -41,6 +43,7 @@ namespace GamePrototype.Units
             }
             
             DamageReceiveHandler();
+           
         }
 
         protected abstract uint CalculateAppliedDamage(uint damage);

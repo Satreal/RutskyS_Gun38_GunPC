@@ -1,7 +1,7 @@
-﻿using GamePrototype.Items.EconomicItems;
-using GamePrototype.Utils;
+﻿using FirstProject_Netology_c.Items.EconomicItems;
+using FirstProject_Netology_c.Utils;
 
-namespace GamePrototype.Items.EquipItems
+namespace FirstProject_Netology_c.Items.EquipItems
 {
     public abstract class EquipItem : Item
     {

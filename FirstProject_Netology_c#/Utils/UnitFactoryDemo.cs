@@ -1,8 +1,8 @@
-﻿using GamePrototype.Items.EconomicItems;
-using GamePrototype.Items.EquipItems;
-using GamePrototype.Units;
+﻿using FirstProject_Netology_c.Items.EconomicItems;
+using FirstProject_Netology_c.Items.EquipItems;
+using FirstProject_Netology_c.Units;
 
-namespace GamePrototype.Utils
+namespace FirstProject_Netology_c.Utils
 {
     public class UnitFactoryDemo
     {
@@ -10,7 +10,10 @@ namespace GamePrototype.Utils
         {
             var player = new Player(name, 30, 30, 6);
             player.AddItemToInventory(new Weapon(10, 15, "Sword"));
-            player.AddItemToInventory(new Armour(10, 15, "Armour"));
+            player.AddItemToInventory(new Weapon(10, 15, "RangeWeapon"));
+            player.AddItemToInventory(new Armour(10, 15, "StandartArmour"));
+            player.AddItemToInventory(new Armour(10, 15, "Helmet"));
+
             player.AddItemToInventory(new HealthPotion("Potion"));
             return player;
         }
