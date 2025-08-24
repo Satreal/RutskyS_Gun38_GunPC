@@ -77,6 +77,7 @@ namespace FirstProject_Netology_c.Combat
             if (defender.Health == 0) 
             {
                 Console.WriteLine($"{defender.Name} is dead!");
+                attacker.HandleCombatComplete();
             }
         }
     }

@@ -4,7 +4,7 @@
     {
         Weapon,
         Armour,
-        Helmet,
+        HeadArmour,
         RangeWeapon
     }
 }

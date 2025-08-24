@@ -5,10 +5,10 @@ namespace FirstProject_Netology_c.Utils
 {
     public static class DungeonBuilder
     {
-        public static DungeonRoom BuildDungeon()
+        public static DungeonRoom BuildDungeon(UnitFactory factory)
         {
             var enter = new DungeonRoom("Enter");
-            var monsterRoom = new DungeonRoom("Monster", UnitFactoryDemo.CreateGoblinEnemy());
+            var monsterRoom = new DungeonRoom("Monster", factory.Create());
             var emptyRoom = new DungeonRoom("Empty");
             var lootRoom = new DungeonRoom("Loot1", new Gold());
             var lootStoneRoom = new DungeonRoom("Loot1", new Grindstone("Stone"));

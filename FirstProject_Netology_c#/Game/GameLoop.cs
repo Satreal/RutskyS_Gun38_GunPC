@@ -22,8 +22,29 @@ namespace FirstProject_Netology_c.Game
 
         private void Initialize()
         {
-            Console.WriteLine("Welcome, player!");
-            _dungeon = DungeonBuilder.BuildDungeon();
+            Console.WriteLine("Welcome, warrior!");
+            Console.WriteLine("choose the difficulty level: 1 -easy, 2 - normal, 3 - hard");
+            int level =0;
+            do
+            {
+                if (int.TryParse(Console.ReadLine(), out level) && (level == 1 || level == 2 || level == 3))
+                {
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Введены некорректные данные");
+                }
+            } while (level!=1||level!=2||level!=3);
+            UnitFactory enemyFactory=null;
+            switch(level)
+            {
+                case 1: { Console.WriteLine($"Да! сложность игры Easy");enemyFactory = new EasyGoblinFactory(); } break;
+                    case 2: { Console.WriteLine("Да! сложность игры Normal");enemyFactory = new NormalGoblinFactory(); } break;
+                    case 3: { Console.WriteLine("Да! сложность игры Hard"); enemyFactory = new HardGoblinFactory(); } break;
+            }
+            
+            _dungeon = DungeonBuilder.BuildDungeon(enemyFactory);
             Console.WriteLine("Enter your name");
             _player = UnitFactoryDemo.CreatePlayer(Console.ReadLine());
             Console.WriteLine($"Hello {_player.Name}");

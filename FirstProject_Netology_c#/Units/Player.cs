@@ -39,16 +39,45 @@ namespace FirstProject_Netology_c.Units
         {
             if (item is EquipItem equipItem && _equipment.TryAdd(equipItem.Slot, equipItem)) 
             {
-                _equipment[equipItem.Slot]=equipItem;
-                Console.WriteLine($"Надето {equipItem.Name}");
+                Equip(equipItem);
                 
             }
             else
             {
-                return;
+                if(item is EquipItem itemOnTheHand)
+                {
+                    TryChangeEquipItem(itemOnTheHand);
+                }
+                else
+                {
+                    base.AddItemToInventory(item);
+                }
+                    return;
             }
-                base.AddItemToInventory(item);
+               
             
+        }
+        private void Equip(EquipItem equipItem)
+        {
+            _equipment[equipItem.Slot] = equipItem;
+            Console.WriteLine($"Надето {equipItem.Name}");
+        }
+        private void TryChangeEquipItem(EquipItem equipItem)
+        {
+            Console.WriteLine("Хотите заменить снаряжение? yes or no");
+            string message = Console.ReadLine();
+            if(message.ToLower()=="yes")
+            {
+                Equip(equipItem);
+                
+                 
+            }
+            else
+            {
+                //continue game
+            }
+
+
         }
 
         private void UseEconomicItem(EconomicItem economicItem)
@@ -57,13 +86,13 @@ namespace FirstProject_Netology_c.Units
             {
                 Health += healthPotion.HealthRestore;
             }
-            else if (economicItem is Grindstone grindstone)
+             if (economicItem is Grindstone grindstone)
             {
                 if (_equipment.TryGetValue(EquipSlot.Weapon, out var item) && item is Weapon weapon)
                 {
                     weapon.Repair(weapon.Durability); 
                     Console.WriteLine($"{Name} использовал {grindstone.Name}");
-                    Inventory.TryRemove(grindstone);
+                    
                 }
             }
         }
