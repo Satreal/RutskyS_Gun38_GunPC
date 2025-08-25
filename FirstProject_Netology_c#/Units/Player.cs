@@ -69,12 +69,12 @@ namespace FirstProject_Netology_c.Units
             if(message.ToLower()=="yes")
             {
                 Equip(equipItem);
-                
-                 
+                Console.WriteLine("Экипировка заменена. Продолжаем путешествие...");
+
             }
             else
             {
-                //continue game
+                Console.WriteLine("Экипировка оставлена. Продолжаем путешествие...");
             }
 
 
